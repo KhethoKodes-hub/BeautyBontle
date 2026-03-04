@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeautyBontle M · About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --pink: #f472b6;
+      --pink-deep: #ec4899;
+      --purple: #a855f7;
+      --purple-deep: #7c3aed;
+      --blue: #3b82f6;
+      --blue-deep: #1d4ed8;
+      --navy: #0a1628;
+      --navy-mid: #0f2044;
+      --glass: rgba(255,255,255,0.08);
+      --glass-border: rgba(255,255,255,0.15);
+      --glass-hover: rgba(255,255,255,0.13);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--navy);
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 1000;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ──────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 900;
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(10,22,40,0.6);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--glass-border);
+      transition: all 0.3s ease;
+    }
+
+    nav.scrolled {
+      padding: 12px 40px;
+      background: rgba(10,22,40,0.92);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: linear-gradient(90deg, var(--pink), var(--purple));
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover { color: #fff; }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-links a.active { color: #fff; }
+    .nav-links a.active::after { width: 100%; }
+
+    .nav-cta {
+      padding: 9px 22px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, var(--pink-deep), var(--purple));
+      color: #fff !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 20px rgba(168,85,247,0.4);
+      transition: all 0.3s !important;
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(168,85,247,0.6) !important;
+    }
+    .nav-cta::after { display: none !important; }
+
+    /* ─── HERO ──────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=2070&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 25%;
+      transform: scale(1.05);
+      transition: transform 8s ease;
+    }
+
+    .hero:hover .hero-bg { transform: scale(1); }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        115deg,
+        rgba(10,22,40,0.96) 0%,
+        rgba(124,58,237,0.5) 50%,
+        rgba(236,72,153,0.3) 80%,
+        rgba(10,22,40,0.7) 100%
+      );
+    }
+
+    /* orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      animation: orb-float 8s ease-in-out infinite;
+    }
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(168,85,247,0.25), transparent 70%);
+      top: -150px; right: -80px;
+    }
+    .orb-2 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, rgba(236,72,153,0.2), transparent 70%);
+      bottom: 0; left: 100px;
+      animation-delay: -4s;
+    }
+
+    @keyframes orb-float {
+      0%,100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-25px) scale(1.04); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 160px 40px 80px;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 18px;
+      border-radius: 50px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 24px;
+      animation: fade-up 0.8s ease forwards;
+    }
+
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--pink);
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.4; transform:scale(0.6); }
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 6vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -2px;
+      animation: fade-up 0.8s 0.1s ease both;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 50%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 20px;
+      max-width: 540px;
+      line-height: 1.75;
+      font-weight: 300;
+      animation: fade-up 0.8s 0.2s ease both;
+    }
+
+    /* ─── GRADIENT DIVIDER ──────────────────────────── */
+    .grad-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--purple), var(--pink), var(--blue), transparent);
+      border: none;
+    }
+
+    /* ─── SECTION SHARED ────────────────────────────── */
+    .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 14px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    /* ─── HISTORY SECTION ───────────────────────────── */
+    #history {
+      background: linear-gradient(180deg, var(--navy) 0%, #0d1f3c 100%);
+    }
+
+    .history-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (min-width: 800px) {
+      .history-grid { grid-template-columns: 1.2fr 1fr; }
+    }
+
+    .history-text p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .reg-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 24px;
+      border-radius: 16px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      font-family: monospace;
+      font-size: 1rem;
+      color: var(--pink);
+      font-weight: 600;
+      margin: 8px 0 24px;
+    }
+
+    .history-img-wrap {
+      position: relative;
+    }
+
+    .history-img {
+      width: 100%;
+      border-radius: 28px;
+      display: block;
+      border: 1px solid var(--glass-border);
+    }
+
+    .history-date-badge {
+      position: absolute;
+      bottom: -20px;
+      left: -20px;
+      padding: 18px 24px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--pink-deep), var(--purple-deep));
+      box-shadow: 0 12px 40px rgba(168,85,247,0.45);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .history-date-badge span {
+      display: block;
+      font-size: 0.7rem;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      opacity: 0.8;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ─── WHAT WE DO ────────────────────────────────── */
+    #services {
+      background: linear-gradient(180deg, #0d1f3c 0%, #0f1e3a 100%);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 56px;
+    }
+
+    @media (min-width: 900px) {
+      .services-grid { grid-template-columns: repeat(4, 1fr); }
+    }
+
+    .service-card {
+      position: relative;
+      border-radius: 22px;
+      overflow: hidden;
+      height: 320px;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 28px 70px rgba(0,0,0,0.5);
+    }
+
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      transition: transform 0.6s ease;
+    }
+
+    .service-card:hover .card-bg { transform: scale(1.1); }
+
+    .card-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,22,40,0.97) 0%, rgba(10,22,40,0.5) 55%, rgba(124,58,237,0.25) 100%);
+      transition: all 0.4s ease;
+    }
+
+    .service-card:hover .card-overlay {
+      background: linear-gradient(to top, rgba(10,22,40,0.98) 0%, rgba(124,58,237,0.5) 65%, rgba(236,72,153,0.25) 100%);
+    }
+
+    .card-content {
+      position: absolute;
+      inset: 0;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+
+    .card-icon-wrap {
+      width: 44px; height: 44px;
+      border-radius: 13px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 12px;
+      font-size: 1rem;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover .card-icon-wrap {
+      background: linear-gradient(135deg, var(--pink-deep), var(--purple-deep));
+      border-color: transparent;
+      transform: scale(1.1);
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .card-desc {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+
+    .service-card:hover .card-desc { max-height: 80px; opacity: 1; }
+
+    .card-arrow {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--pink);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 12px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: all 0.3s 0.08s ease;
+    }
+
+    .service-card:hover .card-arrow { opacity: 1; transform: translateX(0); }
+
+    .services-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 44px;
+      justify-content: center;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: var(--glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--glass-border);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.75);
+      transition: all 0.3s;
+    }
+
+    .tag:hover {
+      background: rgba(168,85,247,0.2);
+      border-color: var(--purple);
+      color: #fff;
+      transform: translateY(-2px);
+    }
+
+    .tag i { color: var(--pink); }
+
+    /* ─── VISION & MISSION ──────────────────────────── */
+    #vision {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a1628 0%, #1a0a2e 60%, #0a1628 100%);
+    }
+
+    .vision-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+    }
+
+    .vision-orb-a {
+      width: 550px; height: 550px;
+      background: radial-gradient(circle, rgba(124,58,237,0.17), transparent 60%);
+      top: -200px; left: -100px;
+    }
+
+    .vision-orb-b {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(236,72,153,0.13), transparent 60%);
+      bottom: -100px; right: 0;
+    }
+
+    .vision-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+
+    @media (min-width: 900px) {
+      .vision-layout { grid-template-columns: 1fr 1fr; }
+    }
+
+    .vision-statement-card {
+      padding: 44px 40px;
+      border-radius: 28px;
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .vision-statement-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+    }
+
+    .vision-statement-card:hover {
+      transform: translateY(-6px);
+      background: var(--glass-hover);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.35);
+    }
+
+    .statement-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 18px;
+    }
+
+    .statement-label i {
+      width: 32px; height: 32px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .vision-statement-card blockquote {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.85);
+      border-left: 2px solid var(--purple);
+      padding-left: 20px;
+    }
+
+    /* Values panel */
+    .values-panel {
+      background: linear-gradient(145deg, rgba(15,30,60,0.9), rgba(26,10,46,0.85));
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 44px 40px;
+      position: relative;
+      overflow: hidden;
+      grid-column: 1 / -1;
+    }
+
+    @media (min-width: 900px) {
+      .values-panel { grid-column: unset; }
+    }
+
+    .values-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--purple), var(--pink));
+    }
+
+    .values-panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 30px;
+      color: #fff;
+    }
+
+    .values-panel-title i { color: var(--pink); }
+
+    .value-item {
+      display: flex;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--glass-border);
+      transition: all 0.3s;
+    }
+
+    .value-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .value-item:hover { padding-left: 6px; }
+
+    .value-icon {
+      width: 48px; height: 48px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .vi-pink { background: rgba(236,72,153,0.15); color: var(--pink); }
+    .vi-purple { background: rgba(168,85,247,0.15); color: var(--purple); }
+    .vi-blue { background: rgba(59,130,246,0.15); color: var(--blue); }
+
+    .value-item h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .value-item p {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    /* ─── GOALS & GROWTH ────────────────────────────── */
+    .goals-section {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .goals-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+
+    .goals-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,22,40,0.97) 0%, rgba(26,10,46,0.92) 50%, rgba(10,22,40,0.97) 100%);
+    }
+
+    .goals-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    @media (min-width: 800px) {
+      .goals-grid { grid-template-columns: 1.3fr 1fr; }
+    }
+
+    .goals-main p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .growth-card {
+      background: var(--glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      padding: 36px;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .growth-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--pink), var(--purple), var(--blue));
+    }
+
+    .growth-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(255,255,255,0.25);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+
+    .growth-icon {
+      width: 60px; height: 60px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(168,85,247,0.25), rgba(236,72,153,0.15));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: var(--purple);
+      margin-bottom: 20px;
+    }
+
+    .growth-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+
+    .growth-card p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.62);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .growth-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .growth-tag {
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .gt-pink { background: rgba(236,72,153,0.15); color: var(--pink); border: 1px solid rgba(236,72,153,0.3); }
+    .gt-purple { background: rgba(168,85,247,0.15); color: var(--purple); border: 1px solid rgba(168,85,247,0.3); }
+    .gt-blue { background: rgba(59,130,246,0.15); color: var(--blue); border: 1px solid rgba(59,130,246,0.3); }
+
+    /* ─── OWNER / DIRECTOR ──────────────────────────── */
+    #owner {
+      background: linear-gradient(180deg, #0d1f3c 0%, var(--navy) 100%);
+    }
+
+    .owner-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    @media (min-width: 900px) {
+      .owner-grid { grid-template-columns: 1fr 1.4fr; }
+    }
+
+    .owner-img-wrap {
+      position: relative;
+    }
+
+    .owner-img {
+      width: 100%;
+      max-width: 380px;
+      border-radius: 32px;
+      display: block;
+      border: 1px solid var(--glass-border);
+    }
+
+    .owner-crown {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 64px; height: 64px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, var(--pink-deep), var(--purple-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 0 10px 30px rgba(168,85,247,0.5);
+    }
+
+    .bbbee-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, rgba(236,72,153,0.15), rgba(168,85,247,0.15));
+      border: 1px solid rgba(236,72,153,0.35);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 22px;
+    }
+
+    .owner-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.05;
+      letter-spacing: -1px;
+      margin-bottom: 8px;
+    }
+
+    .owner-role {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 24px;
+    }
+
+    .owner-bio {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .owner-quote {
+      padding: 20px 28px;
+      border-radius: 18px;
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-left: 3px solid var(--pink);
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.8);
+      line-height: 1.7;
+      margin-top: 28px;
+    }
+
+    /* ─── WHY CHOOSE US BANNER ──────────────────────── */
+    .why-strip {
+      position: relative;
+      overflow: hidden;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, rgba(124,58,237,0.2), rgba(236,72,153,0.1), rgba(59,130,246,0.15));
+      border-top: 1px solid var(--glass-border);
+      border-bottom: 1px solid var(--glass-border);
+    }
+
+    .why-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 32px;
+    }
+
+    .why-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+      transition: color 0.2s;
+    }
+
+    .why-item:hover { color: #fff; }
+
+    .why-item i {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink-deep), var(--purple-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────── */
+    footer {
+      background: linear-gradient(180deg, #080f1f 0%, #050a15 100%);
+      border-top: 1px solid var(--glass-border);
+      position: relative;
+      overflow: hidden;
+    }
+
+    footer::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 700px; height: 350px;
+      background: radial-gradient(ellipse, rgba(124,58,237,0.1), transparent 70%);
+      pointer-events: none;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 72px 40px 36px;
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 44px;
+      margin-bottom: 56px;
+    }
+
+    @media (min-width: 700px) {
+      .footer-top { grid-template-columns: 2fr 1fr 1fr; }
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--pink), var(--purple), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 14px;
+    }
+
+    .footer-tagline {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.7;
+      font-weight: 300;
+      max-width: 280px;
+    }
+
+    .footer-heading {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--pink);
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .footer-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 12px;
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.55);
+      transition: color 0.2s;
+    }
+
+    .footer-item:hover { color: rgba(255,255,255,0.85); }
+    .footer-item i { color: var(--purple); margin-top: 2px; width: 14px; }
+
+    .footer-divider {
+      border: none;
+      border-top: 1px solid var(--glass-border);
+      margin-bottom: 24px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-copy, .footer-reg {
+      font-size: 0.76rem;
+      color: rgba(255,255,255,0.28);
+    }
+
+    /* ─── ANIMATIONS ────────────────────────────────── */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(28px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .hero-content { padding: 140px 20px 60px; }
+      .section-inner { padding: 70px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <a href="bontle-beauty.html" class="nav-logo">BeautyBontle M</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- ─── HERO ─────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+
+    <div class="hero-content">
+      <div class="hero-badge">
+        <div class="dot"></div>
+        Est. 20 March 2018 · Mapoteng, Northern Cape
+      </div>
+      <h1>
+        More than a<br>
+        <span class="gradient-text">copy centre.</span>
+      </h1>
+      <p class="hero-sub">
+        A trusted community hub for internet access, professional printing, CV typing, signage, and branding — serving Sesheng and surrounds since 2018.
+      </p>
+    </div>
+  </section>
+
+  <hr class="grad-divider">
+
+  <!-- ─── HISTORY ───────────────────────────────────── -->
+  <section id="history">
+    <div class="section-inner">
+      <div class="history-grid">
+        <div class="history-text reveal">
+          <span class="section-label">Company History</span>
+          <h2 class="section-title" style="margin-bottom:28px;">
+            Where it all<br><span class="gradient-text">began.</span>
+          </h2>
+          <p>BeautyBontle M Copy Centre was registered with the Companies and Intellectual Property Commission (CIPC) on the <strong style="color:#fff;">20th of March 2018</strong>.</p>
+          <div class="reg-pill">
+            <i class="fas fa-id-card" style="color:var(--purple)"></i>
+            Reg No: 2018/212974/07
+          </div>
+          <p>From day one, we committed to offering reliable internet and professional printing services to our local community. What started as a small neighbourhood copy centre has grown into a trusted destination for individuals and local businesses alike.</p>
+          <p>Located in Mapoteng, Sesheng in the Northern Cape, we proudly serve our community with a full suite of services — from prepaid WiFi and colour copies to large format signage and CV typing.</p>
+        </div>
+
+        <div class="history-img-wrap reveal">
+          <img class="history-img" src="https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=1000&auto=format&fit=crop" alt="Copy centre interior">
+          <div class="history-date-badge">
+            <span>founded</span>
+            20 MAR 2018
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-divider">
+
+  <!-- ─── WHAT WE DO ────────────────────────────────── -->
+  <section id="services">
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center; max-width:580px; margin:0 auto 56px;">
+        <span class="section-label">What We Do</span>
+        <h2 class="section-title">Everything your community needs,<br><span class="gradient-text">in one place.</span></h2>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card reveal">
+          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1573164713988-9665fc3c3a1b?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-icon-wrap"><i class="fas fa-wifi"></i></div>
+            <div class="card-title">Prepaid Internet</div>
+            <div class="card-desc">Fast, affordable pay-as-you-go WiFi access for the public — stay connected anytime.</div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i> Explore</div>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1612815155467-247e5f7b0841?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-icon-wrap"><i class="fas fa-copy"></i></div>
+            <div class="card-title">Print & Copy</div>
+            <div class="card-desc">Colour and B&W copies. Print directly from flash drive, WhatsApp, or email — fast and easy.</div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i> Explore</div>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1586281381140-3b9315a12b39?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-icon-wrap"><i class="fas fa-file-alt"></i></div>
+            <div class="card-title">CV & Typing</div>
+            <div class="card-desc">Professional CV formatting and transcription — handwritten to polished digital documents.</div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i> Explore</div>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-overlay"></div>
+          <div class="card-content">
+            <div class="card-icon-wrap"><i class="fas fa-sign"></i></div>
+            <div class="card-title">Signs & Branding</div>
+            <div class="card-desc">Sign boards, window decals, light boxes, fleet numbering, safety signs, custom decals & large format print.</div>
+            <div class="card-arrow"><i class="fas fa-arrow-right"></i> Explore</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="services-tags reveal">
+        <div class="tag"><i class="fas fa-wifi"></i> Prepaid WiFi</div>
+        <div class="tag"><i class="fas fa-print"></i> Large Format Printing</div>
+        <div class="tag"><i class="fas fa-ad"></i> Advertising Boards</div>
+        <div class="tag"><i class="fas fa-truck"></i> Fleet Numbering</div>
+        <div class="tag"><i class="fas fa-lightbulb"></i> Light Boxes</div>
+        <div class="tag"><i class="fas fa-traffic-light"></i> Traffic & Safety Signs</div>
+        <div class="tag"><i class="fas fa-cut"></i> Custom Decals</div>
+        <div class="tag"><i class="fas fa-window-maximize"></i> Window Branding</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-divider">
+
+  <!-- ─── VISION, MISSION & VALUES ─────────────────── -->
+  <section id="vision">
+    <div class="vision-orb vision-orb-a"></div>
+    <div class="vision-orb vision-orb-b"></div>
+
+    <div class="section-inner">
+      <div class="reveal" style="text-align:center; max-width:580px; margin:0 auto 56px;">
+        <span class="section-label">Strategy & Vision</span>
+        <h2 class="section-title">Guided by purpose,<br><span class="gradient-text">driven by values.</span></h2>
+      </div>
+
+      <div class="vision-layout">
+
+        <div class="vision-statement-card reveal">
+          <div class="statement-label">
+            <i class="fas fa-eye"></i> Vision Statement
+          </div>
+          <blockquote>
+            "To become a leading internet café in and around our area of operation. With a commitment to meet or even exceed our customer's needs. An internet café that is tagged as trusted and well liked."
+          </blockquote>
+        </div>
+
+        <div class="vision-statement-card reveal">
+          <div class="statement-label" style="color:var(--purple)">
+            <i class="fas fa-bullseye"></i> Mission Statement
+          </div>
+          <blockquote style="border-left-color: var(--blue);">
+            "To deliver excellent quality services. Operate in a responsible manner and provide a homelike environment. Bringing out a consistently satisfying customer experience."
+          </blockquote>
+        </div>
+
+        <div class="values-panel reveal">
+          <div class="values-panel-title">
+            <i class="fas fa-heart"></i> Core Values
+          </div>
+          <div class="value-item">
+            <div class="value-icon vi-pink"><i class="fas fa-users"></i></div>
+            <div>
+              <h4>People</h4>
+              <p>We care deeply about people. Our own people, partners, customers, and the community to which we belong. People are always at the centre of everything we do.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon vi-purple"><i class="fas fa-fire"></i></div>
+            <div>
+              <h4>Passion</h4>
+              <p>Passion is the fuel that drives our culture. It defines our mindset and energises our business — in every service we deliver, every day.</p>
+            </div>
+          </div>
+          <div class="value-item">
+            <div class="value-icon vi-blue"><i class="fas fa-leaf"></i></div>
+            <div>
+              <h4>Place</h4>
+              <p>We take seriously our responsibility to the environment. Through our actions we contribute towards creating a better place for future generations.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-divider">
+
+  <!-- ─── GOALS & GROWTH ────────────────────────────── -->
+  <section class="goals-section">
+    <div class="goals-bg"></div>
+    <div class="goals-overlay"></div>
+
+    <div class="section-inner">
+      <div class="reveal" style="max-width:580px; margin-bottom:56px;">
+        <span class="section-label">Business Goals & Objectives</span>
+        <h2 class="section-title">Growing to serve<br><span class="gradient-text">more than individuals.</span></h2>
+      </div>
+
+      <div class="goals-grid">
+        <div class="goals-main reveal">
+          <p>Our goal is a simple one — to become a trusted provider in the space we operate in. To grow to a point where we can provide solutions even to businesses and not just individuals.</p>
+          <p>We believe the foundation of lasting growth lies in doing the basics exceptionally well: showing up, delivering quality, and making every customer feel valued every single time they walk through our doors.</p>
+        </div>
+
+        <div class="growth-card reveal">
+          <div class="growth-icon"><i class="fas fa-chart-line"></i></div>
+          <h3>Growth Strategy</h3>
+          <p>Our growth will be driven by consistency — consistently meeting and even surpassing customer needs. The satisfaction our customers experience ensures they return and refer others. Smart marketing will further amplify our reach.</p>
+          <div class="growth-tags">
+            <span class="growth-tag gt-pink">Consistency</span>
+            <span class="growth-tag gt-purple">Referrals</span>
+            <span class="growth-tag gt-blue">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-divider">
+
+  <!-- ─── OWNER / DIRECTOR ──────────────────────────── -->
+  <section id="owner">
+    <div class="section-inner">
+      <div class="owner-grid">
+
+        <div class="owner-img-wrap reveal">
+          <img class="owner-img" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=800&auto=format&fit=crop" alt="Bontle Beauty Monnagaaratwe – Director">
+          <div class="owner-crown"><i class="fas fa-crown"></i></div>
+        </div>
+
+        <div class="reveal">
+          <div class="bbbee-badge">
+            <i class="fas fa-certificate"></i>
+            Level 1 BBBEE · 135% Contributor · 100% Black Woman Owned
+          </div>
+          <div class="owner-role">Director & Founder</div>
+          <div class="owner-name">
+            Bontle Beauty<br>Monnagaaratwe
+          </div>
+
+          <p class="owner-bio">
+            Born and raised in Batlharos, Kuruman, Bontle completed her Grade 12 at Lesedi High School in 2004. She went on to study a National Certificate in Microsoft Office Specialist and Comptia A+ at MSC Business College in Kempton Park from 2011 to 2013.
+          </p>
+          <p class="owner-bio">
+            She also completed a Short Course in Construction and Project Management at Pro Ulwazi College in 2018. While studying, she began her career working part-time at a local internet café — and after completing her studies, she pursued her passion by founding her own business, serving the Mapoteng Kathu community in the Northern Cape.
+          </p>
+
+          <div class="owner-quote">
+            "I believe in a homelike environment where every customer leaves satisfied. Our community deserves nothing less than excellent service."
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <hr class="grad-divider">
+
+  <!-- ─── WHY CHOOSE US STRIP ───────────────────────── -->
+  <div class="why-strip">
+    <div class="why-grid">
+      <div class="why-item"><i class="fas fa-check"></i> Trusted & Well Liked</div>
+      <div class="why-item"><i class="fas fa-check"></i> Homelike Environment</div>
+      <div class="why-item"><i class="fas fa-check"></i> Excellent Quality Services</div>
+      <div class="why-item"><i class="fas fa-check"></i> Community Focused</div>
+      <div class="why-item"><i class="fas fa-check"></i> 100% Black Woman Owned</div>
+    </div>
+  </div>
+
+  <!-- ─── FOOTER ────────────────────────────────────── -->
+  <footer id="contact">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-logo">BeautyBontle M</div>
+          <p class="footer-tagline">Your community's trusted internet café, copy centre, and branding partner — serving Mapoteng, Sesheng and surrounds since 2018.</p>
+        </div>
+        <div>
+          <div class="footer-heading">Contact</div>
+          <div class="footer-item"><i class="fas fa-phone-alt"></i> +27 72 317 8989</div>
+          <div class="footer-item"><i class="fas fa-envelope"></i> bontlecopycentre123@gmail.com</div>
+          <div class="footer-item"><i class="fas fa-globe"></i> www.bbmcopycentre.co.za</div>
+          <div class="footer-item"><i class="fas fa-map-marker-alt"></i> House 3760, Mapoteng, Sesheng, NC 8447</div>
+        </div>
+        <div>
+          <div class="footer-heading">Quick Links</div>
+          <div class="footer-item"><i class="fas fa-chevron-right"></i> Home</div>
+          <div class="footer-item"><i class="fas fa-chevron-right"></i> About Us</div>
+          <div class="footer-item"><i class="fas fa-chevron-right"></i> Services</div>
+          <div class="footer-item"><i class="fas fa-chevron-right"></i> Contact</div>
+        </div>
+      </div>
+
+      <hr class="footer-divider">
+
+      <div class="footer-bottom">
+        <div class="footer-copy">© 2025 BeautyBontle M Copy Centre. All rights reserved.</div>
+        <div class="footer-reg">CIPC 2018/212974/07 · Registered 20 March 2018</div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const t = document.querySelector(a.getAttribute('href'));
+        if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>

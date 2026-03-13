@@ -702,7 +702,7 @@
     .values-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?q=80&w=1974&auto=format&fit=crop');
+      background-image: url('./assets/bg.jpeg');
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -1166,7 +1166,6 @@
           </div>
         </div>
 
-        <!-- Signs & Branding -->
         <div class="service-card reveal" style="--i:2">
           <div class="card-bg" style="background-image: url('./assets/signage.jpeg')"></div>
           <div class="card-overlay"></div>
@@ -1178,7 +1177,6 @@
           </div>
         </div>
 
-        <!-- Large Format -->
         <div class="service-card reveal" style="--i:3">
           <div class="card-bg" style="background-image: url('./assets/largeprint.jpeg')"></div>
           <div class="card-overlay"></div>
@@ -1192,7 +1190,6 @@
 
       </div>
 
-      <!-- tags -->
       <div class="services-tags reveal">
         <div class="tag"><i class="fas fa-wifi"></i> Prepaid Internet</div>
         <div class="tag"><i class="fas fa-copy"></i> Colour & B&W Copies</div>
@@ -1210,7 +1207,6 @@
 
   <hr class="grad-divider">
 
-  <!-- ─── VISION & MISSION ───────────────────────── -->
   <section id="vision">
     <div class="vision-orb vision-orb-1"></div>
     <div class="vision-orb vision-orb-2"></div>
@@ -1247,7 +1243,6 @@
 
   <hr class="grad-divider">
 
-  <!-- ─── VALUES ────────────────────────────────── -->
   <section class="values-section">
     <div class="values-bg"></div>
     <div class="values-overlay"></div>
@@ -1280,7 +1275,6 @@
 
   <hr class="grad-divider">
 
-  <!-- ─── OWNER / MANAGEMENT ────────────────────── -->
   <section id="owner">
     <div class="owner-bg"></div>
     <div class="owner-overlay"></div>
@@ -1333,7 +1327,6 @@
 
   <hr class="grad-divider">
 
-  <!-- ─── FOOTER / CONTACT ──────────────────────── -->
   <footer id="contact">
     <div class="footer-inner">
       <div class="footer-top">
@@ -1368,14 +1361,12 @@
   </footer>
 
   <script>
-    // Nav scroll effect
     const navbar = document.getElementById('navbar');
     window.addEventListener('scroll', () => {
       if (window.scrollY > 60) navbar.classList.add('scrolled');
       else navbar.classList.remove('scrolled');
     });
 
-    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a => {
       a.addEventListener('click', e => {
         e.preventDefault();
@@ -1384,7 +1375,6 @@
       });
     });
 
-    // Intersection observer for reveal animations
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry, i) => {
         if (entry.isIntersecting) {

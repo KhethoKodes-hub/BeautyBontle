@@ -41,7 +41,6 @@
       opacity: 0.4;
     }
 
-    /* ─── NAV ─────────────────────────────── */
     nav {
       position: fixed;
       top: 0; width: 100%;
@@ -109,7 +108,6 @@
     .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(168,85,247,0.6) !important; }
     .nav-cta::after { display: none !important; }
 
-    /* ─── HERO ────────────────────────────── */
     .hero {
       position: relative;
       min-height: 68vh;
@@ -120,7 +118,7 @@
 
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1562577309-4932fdd64cd1?q=80&w=2070&auto=format&fit=crop');
+      background-image: url('./assets/hero2.jpeg');
       background-size: cover;
       background-position: center 25%;
       transform: scale(1.05);
@@ -231,14 +229,12 @@
       animation: fade-up 0.8s 0.2s ease both;
     }
 
-    /* ─── DIVIDER ─────────────────────────── */
     .grad-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--purple), var(--pink), var(--blue), transparent);
       border: none;
     }
 
-    /* ─── INTRO STRIP ─────────────────────── */
     .intro-strip {
       background: linear-gradient(90deg, rgba(124,58,237,0.12), rgba(236,72,153,0.08), rgba(59,130,246,0.12));
       border-top: 1px solid var(--glass-border);
@@ -261,7 +257,6 @@
       font-weight: 600;
     }
 
-    /* ─── SHARED SECTION ──────────────────── */
     .section-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -286,7 +281,6 @@
       letter-spacing: -1px;
     }
 
-    /* ─── MAIN SERVICE CARDS (large) ──────── */
     #main-services {
       background: linear-gradient(180deg, var(--navy) 0%, #0d1f3c 100%);
     }
@@ -428,7 +422,6 @@
 
     .svc-card:hover .svc-arrow { opacity: 1; transform: translateX(0); }
 
-    /* ─── SIGNAGE SPOTLIGHT ───────────────── */
     .signage-section {
       position: relative;
       overflow: hidden;
@@ -499,7 +492,6 @@
       flex-shrink: 0;
     }
 
-    /* Glass info card */
     .signage-card {
       background: var(--glass);
       backdrop-filter: blur(22px);
@@ -563,7 +555,6 @@
       flex-shrink: 0;
     }
 
-    /* ─── FULL SERVICE LIST ────────────────── */
     #full-list {
       background: linear-gradient(180deg, #0d1f3c 0%, #0a1628 100%);
     }
@@ -647,7 +638,6 @@
     .list-card ul li:hover { color: rgba(255,255,255,0.9); padding-left: 4px; }
     .list-card ul li i { color: var(--pink); font-size: 0.7rem; width: 14px; }
 
-    /* ─── WHY TRUST US ─────────────────────── */
     .trust-section {
       background: linear-gradient(135deg, #0a1628 0%, #1a0a2e 60%, #0a1628 100%);
       position: relative;
@@ -742,7 +732,6 @@
       font-weight: 300;
     }
 
-    /* ─── CTA SECTION ──────────────────────── */
     .cta-section {
       position: relative;
       overflow: hidden;
@@ -828,7 +817,6 @@
       transform: translateY(-3px);
     }
 
-    /* ─── FOOTER ───────────────────────────── */
     footer {
       background: linear-gradient(180deg, #080f1f 0%, #050a15 100%);
       border-top: 1px solid var(--glass-border);
@@ -914,7 +902,6 @@
 
     .footer-copy, .footer-reg { font-size: 0.76rem; color: rgba(255,255,255,0.28); }
 
-    /* ─── ANIMATIONS ────────────────────────── */
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(28px); }
       to { opacity: 1; transform: translateY(0); }
@@ -939,7 +926,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="navbar">
     <div class="nav-logo"><img src="assets/BeautyBontleLogo.png" style="height: 80px; width: 80px;" alt="BeautyBontle M"></div>
     <ul class="nav-links">
@@ -950,7 +936,6 @@
     </ul>
   </nav>
 
-  <!-- ─── HERO ─────────────────────────────────── -->
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -974,14 +959,12 @@
 
   <hr class="grad-divider">
 
-  <!-- INTRO STRIP -->
   <div class="intro-strip">
     <p>Our business model is centred around <strong>internet connectivity for the public</strong> — expanded with professional printing, document typing, and comprehensive <strong>signage & branding solutions</strong> for individuals and businesses alike.</p>
   </div>
 
   <hr class="grad-divider">
 
-  <!-- ─── MAIN SERVICES ─────────────────────────── -->
   <section id="main-services">
     <div class="section-inner">
       <div class="reveal" style="text-align:center; max-width:600px; margin:0 auto 56px;">
@@ -989,17 +972,15 @@
         <h2 class="section-title">Every service your<br><span class="gradient-text">community needs.</span></h2>
       </div>
 
-      <!-- Row 1 -->
       <div class="services-grid-large">
 
-        <!-- Internet -->
         <div class="svc-card reveal">
-          <div class="svc-bg" style="background-image: url('https://images.unsplash.com/photo-1573164713988-9665fc3c3a1b?q=80&w=1400&auto=format&fit=crop')"></div>
+          <div class="svc-bg" style="background-image: url('./assets/print3.jpeg')"></div>
           <div class="svc-overlay"></div>
           <div class="svc-content">
             <div class="svc-icon"><i class="fas fa-wifi"></i></div>
-            <div class="svc-title">Prepaid Internet</div>
-            <div class="svc-desc">Fast, affordable pay-as-you-go public WiFi. Stay connected for work, study, or leisure — no contracts needed.</div>
+            <div class="svc-title">Printing</div>
+            <div class="svc-desc"></div>
             <ul class="svc-list">
               <li><i class="fas fa-circle"></i> Unlimited prepaid access</li>
               <li><i class="fas fa-circle"></i> Hotspot available</li>
@@ -1010,14 +991,13 @@
           </div>
         </div>
 
-        <!-- Copy & Print -->
         <div class="svc-card reveal">
-          <div class="svc-bg" style="background-image: url('https://images.unsplash.com/photo-1612815155467-247e5f7b0841?q=80&w=1400&auto=format&fit=crop')"></div>
+          <div class="svc-bg" style="background-image: url('./assets/brandin2.jpeg')"></div>
           <div class="svc-overlay"></div>
           <div class="svc-content">
             <div class="svc-icon"><i class="fas fa-copy"></i></div>
-            <div class="svc-title">Copy & Print</div>
-            <div class="svc-desc">High quality colour and black & white copies. Print single pages or high volumes — A4, A3 and beyond.</div>
+            <div class="svc-title">Branding</div>
+            <div class="svc-desc"></div>
             <ul class="svc-list">
               <li><i class="fas fa-circle"></i> Colour & B&W</li>
               <li><i class="fas fa-circle"></i> A4, A3, A2 sizes</li>
@@ -1030,12 +1010,12 @@
 
         <!-- Print from Anywhere -->
         <div class="svc-card reveal">
-          <div class="svc-bg" style="background-image: url('https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=1400&auto=format&fit=crop')"></div>
+          <div class="svc-bg" style="background-image: url('./assets/sticker.jpeg')"></div>
           <div class="svc-overlay"></div>
           <div class="svc-content">
             <div class="svc-icon"><i class="fas fa-print"></i></div>
-            <div class="svc-title">Print from Anywhere</div>
-            <div class="svc-desc">Send us your file and we print it — from flash drive, WhatsApp, or email. Simple, fast, and convenient.</div>
+            <div class="svc-title">Stickers</div>
+            <div class="svc-desc"></div>
             <ul class="svc-list">
               <li><i class="fas fa-circle"></i> PDF, Word, JPG</li>
               <li><i class="fas fa-circle"></i> WhatsApp printing</li>
@@ -1048,12 +1028,12 @@
 
         <!-- CV & Typing -->
         <div class="svc-card reveal">
-          <div class="svc-bg" style="background-image: url('https://images.unsplash.com/photo-1586281381140-3b9315a12b39?q=80&w=1400&auto=format&fit=crop')"></div>
+          <div class="svc-bg" style="background-image: url('./assets/frame.jpeg')"></div>
           <div class="svc-overlay"></div>
           <div class="svc-content">
             <div class="svc-icon"><i class="fas fa-file-alt"></i></div>
-            <div class="svc-title">CV & Document Typing</div>
-            <div class="svc-desc">Professional CV formatting and document transcription. We convert handwritten notes into polished, print-ready text.</div>
+            <div class="svc-title">Framing</div>
+            <div class="svc-desc"></div>
             <ul class="svc-list">
               <li><i class="fas fa-circle"></i> CV layout & design</li>
               <li><i class="fas fa-circle"></i> Handwritten to digital</li>
@@ -1070,12 +1050,12 @@
       <div class="services-grid-large" style="margin-top: 20px;">
 
         <div class="svc-card reveal">
-          <div class="svc-bg" style="background-image: url('https://images.unsplash.com/photo-1621072159497-99d2ecf35c3b?q=80&w=1400&auto=format&fit=crop')"></div>
+          <div class="svc-bg" style="background-image: url('./assets/format.jpeg')"></div>
           <div class="svc-overlay"></div>
           <div class="svc-content">
             <div class="svc-icon"><i class="fas fa-ruler-combined"></i></div>
             <div class="svc-title">Large Format Printing</div>
-            <div class="svc-desc">Banners, posters, roll-up displays, and more — printed at scale with sharp, vibrant colour for indoor and outdoor use.</div>
+            <div class="svc-desc"></div>
             <ul class="svc-list">
               <li><i class="fas fa-circle"></i> Up to A0 & roll sizes</li>
               <li><i class="fas fa-circle"></i> Durable outdoor media</li>
@@ -1087,12 +1067,12 @@
         </div>
 
         <div class="svc-card reveal">
-          <div class="svc-bg" style="background-image: url('https://images.unsplash.com/photo-1587295146900-6b1e7ed5fdbb?q=80&w=1400&auto=format&fit=crop')"></div>
+          <div class="svc-bg" style="background-image: url('./assets/advertising.jpeg')"></div>
           <div class="svc-overlay"></div>
           <div class="svc-content">
             <div class="svc-icon"><i class="fas fa-sign"></i></div>
-            <div class="svc-title">Signs & Advertising</div>
-            <div class="svc-desc">From traffic and safety signs to eye-catching advertising boards — we design and produce signage that gets noticed.</div>
+            <div class="svc-title">Advertising</div>
+            <div class="svc-desc"></div>
             <ul class="svc-list">
               <li><i class="fas fa-circle"></i> Traffic & safety signs</li>
               <li><i class="fas fa-circle"></i> Vehicle decals</li>

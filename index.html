@@ -33,7 +33,6 @@
       overflow-x: hidden;
     }
 
-    /* ─── NOISE GRAIN OVERLAY ─────────────────────────────── */
     body::before {
       content: '';
       position: fixed;
@@ -44,7 +43,6 @@
       opacity: 0.4;
     }
 
-    /* ─── NAV ─────────────────────────────────────────────── */
     nav {
       position: fixed;
       top: 0;
@@ -123,7 +121,6 @@
     }
     .nav-cta::after { display: none !important; }
 
-    /* ─── HERO ────────────────────────────────────────────── */
     .hero {
       position: relative;
       min-height: 100vh;
@@ -135,7 +132,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1612815155467-247e5f7b0841?q=80&w=2070&auto=format&fit=crop');
+      background-image: url('./assets/beautyhero.jpeg');
       background-size: cover;
       background-position: center;
       transform: scale(1.05);
@@ -338,7 +335,6 @@
       transform: translateY(-3px);
     }
 
-    /* scroll indicator */
     .scroll-hint {
       position: absolute;
       bottom: 40px;
@@ -373,7 +369,6 @@
       100% { transform: scaleY(0); transform-origin: bottom; }
     }
 
-    /* ─── INFO STRIP ──────────────────────────────────────── */
     .info-strip {
       background: linear-gradient(90deg, rgba(124,58,237,0.15), rgba(236,72,153,0.1), rgba(59,130,246,0.15));
       border-top: 1px solid var(--glass-border);
@@ -404,7 +399,6 @@
       font-size: 0.9rem;
     }
 
-    /* ─── SECTION COMMON ──────────────────────────────────── */
     section { position: relative; }
 
     .section-inner {
@@ -431,7 +425,6 @@
       letter-spacing: -1px;
     }
 
-    /* ─── SERVICES SECTION ────────────────────────────────── */
     #services {
       background: linear-gradient(180deg, var(--navy) 0%, #0d1f3c 100%);
     }
@@ -570,7 +563,6 @@
       transform: translateX(0);
     }
 
-    /* Service details list */
     .services-tags {
       display: flex;
       flex-wrap: wrap;
@@ -604,7 +596,6 @@
 
     .tag i { color: var(--pink); }
 
-    /* ─── VISION SECTION ──────────────────────────────────── */
     #vision {
       position: relative;
       overflow: hidden;
@@ -704,7 +695,6 @@
       font-weight: 300;
     }
 
-    /* ─── VALUES ──────────────────────────────────────────── */
     .values-section {
       position: relative;
     }
@@ -797,7 +787,6 @@
       font-weight: 300;
     }
 
-    /* ─── OWNER/MANAGEMENT HERO ───────────────────────────── */
     #owner {
       position: relative;
       min-height: 80vh;
@@ -935,7 +924,6 @@
       line-height: 1.5;
     }
 
-    /* ─── CONTACT / FOOTER ────────────────────────────────── */
     footer {
       background: linear-gradient(180deg, #080f1f 0%, #050a15 100%);
       border-top: 1px solid var(--glass-border);
@@ -1035,7 +1023,6 @@
       color: rgba(255,255,255,0.3);
     }
 
-    /* ─── ANIMATIONS ──────────────────────────────────────── */
     @keyframes fade-up {
       from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
@@ -1052,10 +1039,8 @@
       transform: translateY(0);
     }
 
-    /* stagger children */
     .stagger-children > * { transition-delay: calc(var(--i, 0) * 0.1s); }
 
-    /* gradient divider */
     .grad-divider {
       height: 1px;
       background: linear-gradient(90deg, transparent, var(--purple), var(--pink), var(--blue), transparent);
@@ -1063,7 +1048,6 @@
       border: none;
     }
 
-    /* ─── RESPONSIVE ──────────────────────────────────────── */
     @media (max-width: 600px) {
       nav { padding: 14px 20px; }
       .nav-links { gap: 20px; }
@@ -1075,7 +1059,6 @@
 </head>
 <body>
 
-  <!-- NAV -->
   <nav id="navbar">
     <div class="nav-logo"><img src="assets/BeautyBontleLogo.png" style="height: 80px; width: 80px;" alt="BeautyBontle M"></div>
     <ul class="nav-links">
@@ -1086,7 +1069,6 @@
     </ul>
   </nav>
 
-  <!-- ─── HERO ─────────────────────────────────── -->
   <section class="hero" id="home">
     <div class="hero-bg"></div>
     <div class="hero-overlay"></div>
@@ -1141,7 +1123,6 @@
     </div>
   </section>
 
-  <!-- INFO STRIP -->
   <div class="info-strip">
     <div class="info-strip-inner">
       <div class="info-chip"><i class="fas fa-building"></i> CIPC 2018/212974/07</div>
@@ -1154,7 +1135,6 @@
 
   <hr class="grad-divider">
 
-  <!-- ─── SERVICES ──────────────────────────────── -->
   <section id="services">
     <div class="section-inner">
       <div class="services-header reveal">
@@ -1164,25 +1144,23 @@
 
       <div class="services-grid stagger-children">
 
-        <!-- Internet & Printing -->
         <div class="service-card reveal" style="--i:0">
-          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1612815155467-247e5f7b0841?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-bg" style="background-image: url('./assets/printing.jpeg')"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <div class="card-icon-wrap"><i class="fas fa-wifi"></i></div>
-            <div class="card-title">Prepaid Internet & Printing</div>
+            <div class="card-title"> Printing</div>
             <div class="card-desc">Connect online with our prepaid WiFi. Print from flash drive, WhatsApp, or email. Colour and B&W copies available.</div>
             <div class="card-arrow"><i class="fas fa-arrow-right"></i> Learn more</div>
           </div>
         </div>
 
-        <!-- CV Typing -->
         <div class="service-card reveal" style="--i:1">
-          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1586281381140-3b9315a12b39?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-bg" style="background-image: url('./assets/program.jpeg')"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <div class="card-icon-wrap"><i class="fas fa-file-alt"></i></div>
-            <div class="card-title">CV & Document Typing</div>
+            <div class="card-title">Programs</div>
             <div class="card-desc">Professional CV typing and transcription. We convert handwritten documents into polished digital text.</div>
             <div class="card-arrow"><i class="fas fa-arrow-right"></i> Learn more</div>
           </div>
@@ -1190,11 +1168,11 @@
 
         <!-- Signs & Branding -->
         <div class="service-card reveal" style="--i:2">
-          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-bg" style="background-image: url('./assets/signage.jpeg')"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <div class="card-icon-wrap"><i class="fas fa-sign"></i></div>
-            <div class="card-title">Signs & Window Branding</div>
+            <div class="card-title">Signs & Branding</div>
             <div class="card-desc">Light boxes, window decals, safety signs, fleet numbering, sign boards, and full custom branding solutions.</div>
             <div class="card-arrow"><i class="fas fa-arrow-right"></i> Learn more</div>
           </div>
@@ -1202,7 +1180,7 @@
 
         <!-- Large Format -->
         <div class="service-card reveal" style="--i:3">
-          <div class="card-bg" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=1200&auto=format&fit=crop')"></div>
+          <div class="card-bg" style="background-image: url('./assets/largeprint.jpeg')"></div>
           <div class="card-overlay"></div>
           <div class="card-content">
             <div class="card-icon-wrap"><i class="fas fa-print"></i></div>
